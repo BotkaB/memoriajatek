@@ -71,6 +71,19 @@ function tablaMeret() {
 
     var meret = adatBeker();
 
+    let elteltMP = 0;
+        let idozito = setInterval( ()=>{
+            console.log("időzítő");
+            let perc=parseInt(elteltMP/60);
+            let sec=elteltMP%60;
+            console.log(perc+":"+sec);
+            CLASS("ora")[0].innerHTML=perc+":"+(sec<10?"0"+sec:sec);
+            elteltMP++;
+            if (parokszama === kepekSzama) {
+                clearInterval(idozito);
+            }
+        },1000);
+
     let tabla = ID("tabla");
 
     let html = "";
@@ -229,6 +242,9 @@ function tablaMeret() {
     let parokszama = 0;
 
     function megnez(event) {
+        if (parKepTomb.length === 2){
+            return;
+        }
         console.log("itt", event.target.id);
         let valasztas = parseInt(event.target.id);
         event.target.src = jatszoLista[valasztas];
@@ -306,18 +322,7 @@ function tablaMeret() {
             }
         }, 201);
 
-        let elteltMP = 0;
-        let idozito = setInterval( ()=>{
-            console.log("időzítő");
-            let perc=parseInt(elteltMP/60);
-            let sec=elteltMP%60;
-            console.log(perc+":"+sec);
-            CLASS("ora")[0].innerHTML=perc+":"+sec;
-            elteltMP++;
-            if (parokszama === kepekSzama) {
-                clearInterval(idozito);
-            }
-        },1000);
+        
     }
 }
 
