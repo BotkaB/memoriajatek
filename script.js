@@ -79,10 +79,10 @@ function tablaMeret() {
 
     let elteltMP = 0;
     let idozito = setInterval(() => {
-        console.log("időzítő");
+        
         let perc = parseInt(elteltMP / 60);
         let sec = elteltMP % 60;
-        console.log(perc + ":" + sec);
+        
         CLASS("ora")[0].innerHTML = perc + ":" + (sec < 10 ? "0" + sec : sec);
         elteltMP++;
         if (parokszama === kepekSzama) {
@@ -171,7 +171,7 @@ function tablaMeret() {
         let valasztas = parseInt(event.target.id);
         event.target.src = jatszoLista[valasztas];
 
-        if (0 <= valasztas && valasztas < 20) {
+        if (0 <= valasztas && valasztas < 40) {
             parKepTomb.push(jatszoLista[valasztas]);
             parTomb.push(valasztas);
             var kep1 = parseInt(parTomb[0]);
@@ -179,7 +179,7 @@ function tablaMeret() {
             console.log(parTomb);
             console.log(kep1);
         }
-        if (0 <= valasztas && valasztas < 20 && valasztas != kep1) {
+        if (0 <= valasztas && valasztas < 40 && valasztas != kep1) {
             var kep2 = parseInt(parTomb[1]);
             console.log(parKepTomb);
         } else {
